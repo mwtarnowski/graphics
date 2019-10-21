@@ -44,6 +44,7 @@ jobs:
 
 script:
   - bazel test //tensorflow_graphics/...
+  - bazel coverage --combined_report=lcov --coverage_report_generator="@bazel_tools//tools/test/LcovMerger/java/com/google/devtools/lcovmerger:Main" //tensorflow_graphics/...
   - flake8 --config=.flake8 ./tensorflow_graphics/
 
 after_success:
